@@ -23,6 +23,8 @@
 		4957DEF51FB7702C00BEDDE7 /* CDOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEEB1FB7702C00BEDDE7 /* CDOption.swift */; };
 		4957DEF61FB7702C00BEDDE7 /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEEC1FB7702C00BEDDE7 /* ColorSelector.swift */; };
 		4957DEF71FB7702C00BEDDE7 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEED1FB7702C00BEDDE7 /* HexColor.swift */; };
+		4957DF5F1FC06C8B00BEDDE7 /* ClassesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DF5E1FC06C8B00BEDDE7 /* ClassesCell.swift */; };
+		4957DF611FC0750800BEDDE7 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DF601FC0750800BEDDE7 /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		4957DEEB1FB7702C00BEDDE7 /* CDOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDOption.swift; sourceTree = "<group>"; };
 		4957DEEC1FB7702C00BEDDE7 /* ColorSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		4957DEED1FB7702C00BEDDE7 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
+		4957DF5E1FC06C8B00BEDDE7 /* ClassesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassesCell.swift; sourceTree = "<group>"; };
+		4957DF601FC0750800BEDDE7 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 				4957DEE11FB7702C00BEDDE7 /* AddClassViewController.swift */,
 				4957DEE21FB7702C00BEDDE7 /* ClassesTableViewController.swift */,
 				4957DEE31FB7702C00BEDDE7 /* ClassModel.swift */,
+				4957DF5E1FC06C8B00BEDDE7 /* ClassesCell.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				4957DEEB1FB7702C00BEDDE7 /* CDOption.swift */,
 				4957DEEC1FB7702C00BEDDE7 /* ColorSelector.swift */,
 				4957DEED1FB7702C00BEDDE7 /* HexColor.swift */,
+				4957DF601FC0750800BEDDE7 /* AlertView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -209,10 +215,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4957DF5F1FC06C8B00BEDDE7 /* ClassesCell.swift in Sources */,
 				4957DEF01FB7702C00BEDDE7 /* ClassModel.swift in Sources */,
 				4957DEF11FB7702C00BEDDE7 /* ClassCell.swift in Sources */,
 				4957DEF21FB7702C00BEDDE7 /* ClassDetailViewController.swift in Sources */,
 				4957DEF31FB7702C00BEDDE7 /* ViewController.swift in Sources */,
+				4957DF611FC0750800BEDDE7 /* AlertView.swift in Sources */,
 				4957DEEF1FB7702C00BEDDE7 /* ClassesTableViewController.swift in Sources */,
 				4957DEF41FB7702C00BEDDE7 /* SettingViewController.swift in Sources */,
 				494DF5031FA55CC3009491BA /* ClassSchedule.xcdatamodeld in Sources */,
@@ -361,6 +369,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWRCW7GW5W;
 				INFOPLIST_FILE = ClassSchedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyx.ClassSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -376,6 +385,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YWRCW7GW5W;
 				INFOPLIST_FILE = ClassSchedule/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wyx.ClassSchedule;
 				PRODUCT_NAME = "$(TARGET_NAME)";

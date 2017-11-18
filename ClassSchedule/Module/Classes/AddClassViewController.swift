@@ -14,6 +14,8 @@ class AddClassViewController: UIViewController {
     @IBOutlet weak var teacherNameTf: UITextField!
     @IBOutlet weak var roomNumberTf: UITextField!
     @IBOutlet weak var classNameTf: UITextField!
+    
+    var selectedTag: Int16 = 100
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,7 @@ class AddClassViewController: UIViewController {
     }
     
     @IBAction func colorSelectAction(_ sender: UIButton) {
-        
+        selectedTag = Int16(sender.tag)
         UIView.animate(withDuration: 0.5) {
             self.arrow.center = CGPoint(x: sender.center.x, y: self.arrow.center.y)
         }
@@ -34,6 +36,16 @@ class AddClassViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: UIButton) {
+        let model = ClassModel()
+        model.name = classNameTf.text!
+        model.room = roomNumberTf.text!
+        model.teacher = teacherNameTf.text!
+        model.bgColor = self.selectedTag
+        CDOption.insertClazz(model: model)
+        
+        AlertView.showAlert(message: "添加课程成功", inView: self) {
+            self.navigationController?.popViewController(animated: true)
+        }
     }
     /*
     // MARK: - Navigation

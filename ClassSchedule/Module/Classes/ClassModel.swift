@@ -14,12 +14,12 @@ class ClassModel {
     var name : String
     var room : String
     var teacher : String
-    var bgColor : String
+    var bgColor : Int16
     
     init() {
         name = ""
         room = ""
         teacher = ""
-        bgColor = ""
+        bgColor = 100
     }
 }

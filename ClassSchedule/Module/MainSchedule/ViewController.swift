@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let weeks = ["", "周一", "周二", "周三", "周四", "周五"]
-    
+    let classes = ["英语", "数学", "语文", "科学", "体育", "音乐", "美术"]
 
     @IBOutlet weak var collectionView: UICollectionView!
     override func viewDidLoad() {
@@ -41,7 +41,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
             return cell!
         } else {
-            cell?.nameLabel.text = "英语"
+            if indexPath.row % 6 == 0 {
+                cell?.nameLabel.text = "\(8 + indexPath.row/6):00"
+            } else {
+                cell?.nameLabel.text = classes[Int(arc4random_uniform(6))]
+            }
             
             return cell!        
         }

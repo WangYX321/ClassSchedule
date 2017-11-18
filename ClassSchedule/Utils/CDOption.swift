@@ -12,7 +12,7 @@ import CoreData
 
 class CDOption {
     //MARK: CoreData options
-    static func insertData(model: ClassModel) {
+    static func insertClazz(model: ClassModel) {
         //获取管理的数据上下文 对象
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -35,8 +35,8 @@ class CDOption {
         }
     }
     
-    /*
-    static func fetch(between fromDate:Date, toDate:Date) -> [ClassModel]{
+    
+    static func fetchClazz() -> [ClassModel]{
         //获取管理的数据上下文 对象
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -47,8 +47,8 @@ class CDOption {
         //        fetchRequest.fetchOffset = 0 //查询的偏移量
         
         //设置查询条件
-        let predicate = NSPredicate(format: "(dateStamp > '\(fromTimeStamp)') and (dateStamp<'\(toTimeStamp)') ", "")
-        fetchRequest.predicate = predicate
+//        let predicate = NSPredicate(format: "(dateStamp > '\(fromTimeStamp)') and (dateStamp<'\(toTimeStamp)') ", "")
+//        fetchRequest.predicate = predicate
         
         var dataArray = [ClassModel]()
         //查询操作
@@ -59,9 +59,9 @@ class CDOption {
             for info in fetchedObjects{
                 let model = ClassModel()
                 model.name = info.name!
-                model.endPoint = CGPoint(x: CGFloat(info.endPointX), y: CGFloat(info.endPointY))
-                model.date = Date(timeIntervalSince1970: TimeInterval(info.dateStamp))
-                model.createTime = info.createTime
+                model.room = info.room!
+                model.teacher = info.teacher!
+                model.bgColor = info.bgColor
                 
                 dataArray.append(model)
             }
@@ -73,6 +73,7 @@ class CDOption {
         return dataArray
     }
     
+    /*
 //    static func deleteData(model: ClassModel) {
     static func deleteData(modelId: Int, completion:((Bool) -> Swift.Void)? = nil) {
         //获取管理的数据上下文 对象

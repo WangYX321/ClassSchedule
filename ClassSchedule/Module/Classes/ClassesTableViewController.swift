@@ -10,6 +10,8 @@ import UIKit
 
 class ClassesTableViewController: UITableViewController {
 
+    var dataArray = [ClassModel]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,12 @@ class ClassesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dataArray = CDOption.fetchClazz()
+        self.tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +37,28 @@ class ClassesTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.dataArray.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "classesCellId", for: indexPath) as? ClassesCell
+        
+        if cell == nil {
+            cell = ClassesCell(style: .default, reuseIdentifier: "classesCellId")
+        }
+        
+        cell?.nameLabel.text = self.dataArray[indexPath.row].name
+        cell?.roomLabel.text = self.dataArray[indexPath.row].room
+        cell?.teacherLabel.text = self.dataArray[indexPath.row].teacher
+        cell?.backgroundColor = ColorSelector.getColorFromTag(tag: Int(self.dataArray[indexPath.row].bgColor))
 
-        // Configure the cell...
-
-        return cell
+        return cell!
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
