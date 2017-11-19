@@ -59,6 +59,22 @@ class ClassesTableViewController: UITableViewController {
 
         return cell!
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            CDOption.deleteClazz(name: self.dataArray[indexPath.row].name, completion: { success in
+                if success {
+                    self.dataArray.remove(at: indexPath.row)
+                    self.tableView.deleteRows(at: [indexPath], with: .left)
+                    AlertView.showAlert(message: "删除成功", inView: self)
+                }
+            })
+        }
+    }
 
     /*
     // Override to support conditional editing of the table view.

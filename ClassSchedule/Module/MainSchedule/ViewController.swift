@@ -44,7 +44,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if indexPath.row % 6 == 0 {
                 cell?.nameLabel.text = "\(8 + indexPath.row/6):00"
             } else {
-                cell?.nameLabel.text = classes[Int(arc4random_uniform(6))]
+                cell?.nameLabel.text = classes[Int(arc4random_uniform(UInt32(classes.count-1)))]
             }
             
             return cell!        

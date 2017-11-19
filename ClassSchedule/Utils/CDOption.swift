@@ -73,9 +73,8 @@ class CDOption {
         return dataArray
     }
     
-    /*
 //    static func deleteData(model: ClassModel) {
-    static func deleteData(modelId: Int, completion:((Bool) -> Swift.Void)? = nil) {
+    static func deleteClazz(name: String, completion:((Bool) -> Swift.Void)? = nil) {
         //获取管理的数据上下文 对象
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -86,7 +85,7 @@ class CDOption {
         //        fetchRequest.fetchOffset = 0 //查询的偏移量
         
         //设置查询条件
-        let predicate = NSPredicate(format: "createTime= '\(modelId)' ", "")
+        let predicate = NSPredicate(format: "name= '\(name)' ", "")
         fetchRequest.predicate = predicate
         
         //查询操作
@@ -96,7 +95,7 @@ class CDOption {
 //            let model = ClassModel()
             //遍历查询的结果
             for info in fetchedObjects{
-                if info.createTime == modelId {
+                if info.name == name {
                     context.delete(info)
                 }
             }
@@ -113,5 +112,4 @@ class CDOption {
         }
         
     }
- */
 }

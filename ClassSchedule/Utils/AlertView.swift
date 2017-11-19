@@ -13,11 +13,11 @@ class AlertView {
     static func showAlert(message: String, inView: UIViewController, completion: (()->Void)? = nil) {
         let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         inView.present(alert, animated: true) {
-            Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { timer in
-                alert.dismiss(animated: true, completion: nil)
+            Timer.scheduledTimer(withTimeInterval: 0.8, repeats: false, block: { timer in
                 if let completionAlert = completion {
                     completionAlert()
                 }
+                alert.dismiss(animated: true, completion: nil)
             })
         }
     }
