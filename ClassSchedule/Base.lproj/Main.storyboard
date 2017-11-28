@@ -212,6 +212,7 @@
                                     <outlet property="nameLabel" destination="s7e-L9-nL6" id="Egq-j2-vu5"/>
                                     <outlet property="roomLabel" destination="kNG-mT-xQL" id="p6z-Wg-wVz"/>
                                     <outlet property="teacherLabel" destination="HEE-55-Eei" id="uFE-e3-vlh"/>
+                                    <segue destination="dRt-x5-daU" kind="show" identifier="editClassSegue" id="m7k-yh-n3a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -410,10 +411,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cpP-hS-8Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="997.60000000000002" y="-270.31484257871068"/>
+            <point key="canvasLocation" x="1060" y="-270"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow_down" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="m7k-yh-n3a"/>
+    </inferredMetricsTieBreakers>
 </document>

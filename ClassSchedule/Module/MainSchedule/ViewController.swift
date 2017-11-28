@@ -30,7 +30,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if section == 0 {
             return 6
         } else {
-            return 78
+            return 48
         }
     }
     
@@ -42,7 +42,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return cell!
         } else {
             if indexPath.row % 6 == 0 {
-                cell?.nameLabel.text = "\(8 + indexPath.row/6):00"
+                cell?.nameLabel.text = "\(1 + indexPath.row/6)"
             } else {
                 cell?.nameLabel.text = classes[Int(arc4random_uniform(UInt32(classes.count-1)))]
             }
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.view.frame.size.width/6, height: self.view.frame.size.height/14)
+        return CGSize(width: self.view.frame.size.width/6, height: (self.view.frame.size.height - 64)/9)
     }
 
     override func didReceiveMemoryWarning() {

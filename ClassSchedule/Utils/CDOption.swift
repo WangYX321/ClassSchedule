@@ -73,8 +73,7 @@ class CDOption {
         return dataArray
     }
     
-//    static func deleteData(model: ClassModel) {
-    static func deleteClazz(name: String, completion:((Bool) -> Swift.Void)? = nil) {
+    static func deleteClazz(model: ClassModel, completion:((Bool) -> Swift.Void)? = nil) {
         //获取管理的数据上下文 对象
         let app = UIApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
@@ -85,7 +84,7 @@ class CDOption {
         //        fetchRequest.fetchOffset = 0 //查询的偏移量
         
         //设置查询条件
-        let predicate = NSPredicate(format: "name= '\(name)' ", "")
+        let predicate = NSPredicate(format: "name= '\(model.name)' AND room='\(model.room)' AND teacher='\(model.teacher)' ", "")
         fetchRequest.predicate = predicate
         
         //查询操作
@@ -95,7 +94,7 @@ class CDOption {
 //            let model = ClassModel()
             //遍历查询的结果
             for info in fetchedObjects{
-                if info.name == name {
+                if info.name == model.name && info.room == model.room && info.teacher == model.teacher {
                     context.delete(info)
                 }
             }
@@ -109,6 +108,48 @@ class CDOption {
         }
         catch {
             fatalError("不能删除：\(error)")
+        }
+        
+    }
+    
+    static func updateClazz(model: ClassModel, newModel:ClassModel, completion:((Bool) -> Swift.Void)? = nil) {
+        //获取管理的数据上下文 对象
+        let app = UIApplication.shared.delegate as! AppDelegate
+        let context = app.persistentContainer.viewContext
+        
+        //声明数据的请求
+        let fetchRequest = NSFetchRequest<Clazz>(entityName:"Clazz")
+        //        fetchRequest.fetchLimit = 10 //限定查询结果的数量
+        //        fetchRequest.fetchOffset = 0 //查询的偏移量
+        
+        //设置查询条件
+        let predicate = NSPredicate(format: "name= '\(model.name)' AND room='\(model.room)' AND teacher='\(model.teacher)' ", "")
+        fetchRequest.predicate = predicate
+        
+        //查询操作
+        do {
+            let fetchedObjects = try context.fetch(fetchRequest)
+            
+            //            let model = ClassModel()
+            //遍历查询的结果
+            for info in fetchedObjects{
+                if info.name == model.name && info.room == model.room && info.teacher == model.teacher {
+                    info.name = newModel.name
+                    info.room = newModel.room
+                    info.teacher = newModel.teacher
+                    info.bgColor = newModel.bgColor
+                }
+            }
+            
+            //重新保存-更新到数据库
+            try! context.save()
+            print("更新成功")
+            if let handler = completion {
+                handler(true)
+            }
+        }
+        catch {
+            fatalError("不能更新：\(error)")
         }
         
     }

@@ -11,6 +11,8 @@ import UIKit
 class ClassesTableViewController: UITableViewController {
 
     var dataArray = [ClassModel]()
+    var selectedClassModel = ClassModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,13 +68,33 @@ class ClassesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            CDOption.deleteClazz(name: self.dataArray[indexPath.row].name, completion: { success in
-                if success {
-                    self.dataArray.remove(at: indexPath.row)
-                    self.tableView.deleteRows(at: [indexPath], with: .left)
-                    AlertView.showAlert(message: "删除成功", inView: self)
-                }
+            let alert = UIAlertController(title: "确定要删除么?", message: "", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+            let confirm = UIAlertAction(title: "删除", style: .destructive, handler: { (action) in
+                CDOption.deleteClazz(model: self.dataArray[indexPath.row], completion: { success in
+                    if success {
+                        self.dataArray.remove(at: indexPath.row)
+                        self.tableView.deleteRows(at: [indexPath], with: .left)
+                        AlertView.showAlert(message: "删除成功", inView: self)
+                    }
+                })
             })
+            alert.addAction(cancel)
+            alert.addAction(confirm)
+            self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        self.selectedClassModel = self.dataArray[indexPath.row]
+        return indexPath
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editClassSegue" {
+            let vc = segue.destination as? AddClassViewController
+            vc?.classModel = self.selectedClassModel
+            vc?.title = "Edit Class"
         }
     }
 
