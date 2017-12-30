@@ -1,23 +1,20 @@
 //
-//  ViewController.swift
+//  SetScheduleViewController.swift
 //  ClassSchedule
 //
-//  Created by wyx on 2017/10/29.
+//  Created by wyx on 2017/12/10.
 //  Copyright © 2017年 wyx. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
+class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    @IBOutlet weak var collectionView: UICollectionView!
     var weeks = [String]()
-    
-    let classes = ["英语", "数学", "语文", "科学", "体育", "音乐", "美术"]
     
     var column = 0
     var row = 0
-
-    @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,21 +46,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.changeNumber), name: NSNotification.Name("Notification_changeNumber"), object: nil)
     }
-    
-//    @objc func changeNumber() {
-//        if let num = UserDefaults.standard.value(forKey: "TableColumn") {
-//            column = num as! Int
-//        }
-//
-//        if let num = UserDefaults.standard.value(forKey: "TableRow") {
-//            row = num as! Int
-//        }
-//
-//        self.collectionView.reloadData()
-//    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -87,10 +70,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             if indexPath.row % (column+1) == 0 {
                 cell?.nameLabel.text = "\(1 + indexPath.row/(column+1))"
             } else {
-                cell?.nameLabel.text = classes[Int(arc4random_uniform(UInt32(classes.count-1)))]
+//                cell?.nameLabel.text = classes[Int(arc4random_uniform(UInt32(classes.count-1)))]
+                cell?.nameLabel.text = ""
             }
             
-            return cell!        
+            return cell!
         }
     }
     
@@ -102,7 +86,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-

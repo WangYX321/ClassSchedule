@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490C8DD41FD39B450019607F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C8DD31FD39B450019607F /* SettingsViewController.swift */; };
+		493F256A1FDCDCEB005ED4DD /* SetScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */; };
 		494DF4FB1FA55CC3009491BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DF4FA1FA55CC3009491BA /* AppDelegate.swift */; };
 		494DF5001FA55CC3009491BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494DF4FE1FA55CC3009491BA /* Main.storyboard */; };
 		494DF5031FA55CC3009491BA /* ClassSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 494DF5011FA55CC3009491BA /* ClassSchedule.xcdatamodeld */; };
@@ -19,7 +21,6 @@
 		4957DEF11FB7702C00BEDDE7 /* ClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEE51FB7702C00BEDDE7 /* ClassCell.swift */; };
 		4957DEF21FB7702C00BEDDE7 /* ClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEE61FB7702C00BEDDE7 /* ClassDetailViewController.swift */; };
 		4957DEF31FB7702C00BEDDE7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEE71FB7702C00BEDDE7 /* ViewController.swift */; };
-		4957DEF41FB7702C00BEDDE7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEE91FB7702C00BEDDE7 /* SettingViewController.swift */; };
 		4957DEF51FB7702C00BEDDE7 /* CDOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEEB1FB7702C00BEDDE7 /* CDOption.swift */; };
 		4957DEF61FB7702C00BEDDE7 /* ColorSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEEC1FB7702C00BEDDE7 /* ColorSelector.swift */; };
 		4957DEF71FB7702C00BEDDE7 /* HexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4957DEED1FB7702C00BEDDE7 /* HexColor.swift */; };
@@ -28,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490C8DD31FD39B450019607F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetScheduleViewController.swift; sourceTree = "<group>"; };
 		494DF4F71FA55CC3009491BA /* ClassSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494DF4FA1FA55CC3009491BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494DF4FF1FA55CC3009491BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -42,7 +45,6 @@
 		4957DEE51FB7702C00BEDDE7 /* ClassCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassCell.swift; sourceTree = "<group>"; };
 		4957DEE61FB7702C00BEDDE7 /* ClassDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassDetailViewController.swift; sourceTree = "<group>"; };
 		4957DEE71FB7702C00BEDDE7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		4957DEE91FB7702C00BEDDE7 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4957DEEB1FB7702C00BEDDE7 /* CDOption.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDOption.swift; sourceTree = "<group>"; };
 		4957DEEC1FB7702C00BEDDE7 /* ColorSelector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelector.swift; sourceTree = "<group>"; };
 		4957DEED1FB7702C00BEDDE7 /* HexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HexColor.swift; sourceTree = "<group>"; };
@@ -61,6 +63,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		490C8DD21FD39AFE0019607F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				490C8DD31FD39B450019607F /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		493F256B1FDCE08A005ED4DD /* Homework */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Homework;
+			sourceTree = "<group>";
+		};
 		494DF4EE1FA55CC3009491BA = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +101,6 @@
 				4957DEEA1FB7702C00BEDDE7 /* Utils */,
 				494DF4FA1FA55CC3009491BA /* AppDelegate.swift */,
 				494DF4FE1FA55CC3009491BA /* Main.storyboard */,
-				494DF5161FA579D8009491BA /* EditDetailViewController.swift */,
 				494DF5041FA55CC3009491BA /* Assets.xcassets */,
 				494DF5061FA55CC3009491BA /* LaunchScreen.storyboard */,
 				494DF5091FA55CC3009491BA /* Info.plist */,
@@ -96,9 +112,9 @@
 		4957DEDF1FB7702C00BEDDE7 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				4957DEE01FB7702C00BEDDE7 /* Classes */,
+				493F256B1FDCE08A005ED4DD /* Homework */,
+				490C8DD21FD39AFE0019607F /* Settings */,
 				4957DEE41FB7702C00BEDDE7 /* MainSchedule */,
-				4957DEE81FB7702C00BEDDE7 /* SetSchedule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -117,19 +133,14 @@
 		4957DEE41FB7702C00BEDDE7 /* MainSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				4957DEE01FB7702C00BEDDE7 /* Classes */,
+				493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */,
+				494DF5161FA579D8009491BA /* EditDetailViewController.swift */,
 				4957DEE51FB7702C00BEDDE7 /* ClassCell.swift */,
 				4957DEE61FB7702C00BEDDE7 /* ClassDetailViewController.swift */,
 				4957DEE71FB7702C00BEDDE7 /* ViewController.swift */,
 			);
 			path = MainSchedule;
-			sourceTree = "<group>";
-		};
-		4957DEE81FB7702C00BEDDE7 /* SetSchedule */ = {
-			isa = PBXGroup;
-			children = (
-				4957DEE91FB7702C00BEDDE7 /* SettingViewController.swift */,
-			);
-			path = SetSchedule;
 			sourceTree = "<group>";
 		};
 		4957DEEA1FB7702C00BEDDE7 /* Utils */ = {
@@ -217,12 +228,13 @@
 			files = (
 				4957DF5F1FC06C8B00BEDDE7 /* ClassesCell.swift in Sources */,
 				4957DEF01FB7702C00BEDDE7 /* ClassModel.swift in Sources */,
+				493F256A1FDCDCEB005ED4DD /* SetScheduleViewController.swift in Sources */,
 				4957DEF11FB7702C00BEDDE7 /* ClassCell.swift in Sources */,
 				4957DEF21FB7702C00BEDDE7 /* ClassDetailViewController.swift in Sources */,
 				4957DEF31FB7702C00BEDDE7 /* ViewController.swift in Sources */,
 				4957DF611FC0750800BEDDE7 /* AlertView.swift in Sources */,
 				4957DEEF1FB7702C00BEDDE7 /* ClassesTableViewController.swift in Sources */,
-				4957DEF41FB7702C00BEDDE7 /* SettingViewController.swift in Sources */,
+				490C8DD41FD39B450019607F /* SettingsViewController.swift in Sources */,
 				494DF5031FA55CC3009491BA /* ClassSchedule.xcdatamodeld in Sources */,
 				4957DEF51FB7702C00BEDDE7 /* CDOption.swift in Sources */,
 				4957DEEE1FB7702C00BEDDE7 /* AddClassViewController.swift in Sources */,
