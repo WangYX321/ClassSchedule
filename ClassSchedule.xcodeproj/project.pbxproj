@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		490C8DD41FD39B450019607F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490C8DD31FD39B450019607F /* SettingsViewController.swift */; };
 		493F256A1FDCDCEB005ED4DD /* SetScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */; };
+		494B274320143F7600A4B93C /* ClassInScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494B274220143F7600A4B93C /* ClassInScheduleModel.swift */; };
 		494DF4FB1FA55CC3009491BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494DF4FA1FA55CC3009491BA /* AppDelegate.swift */; };
 		494DF5001FA55CC3009491BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 494DF4FE1FA55CC3009491BA /* Main.storyboard */; };
 		494DF5031FA55CC3009491BA /* ClassSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 494DF5011FA55CC3009491BA /* ClassSchedule.xcdatamodeld */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		490C8DD31FD39B450019607F /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetScheduleViewController.swift; sourceTree = "<group>"; };
+		494B274220143F7600A4B93C /* ClassInScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInScheduleModel.swift; sourceTree = "<group>"; };
 		494DF4F71FA55CC3009491BA /* ClassSchedule.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClassSchedule.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		494DF4FA1FA55CC3009491BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		494DF4FF1FA55CC3009491BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				4957DEE01FB7702C00BEDDE7 /* Classes */,
 				493F25691FDCDCEB005ED4DD /* SetScheduleViewController.swift */,
+				494B274220143F7600A4B93C /* ClassInScheduleModel.swift */,
 				494DF5161FA579D8009491BA /* EditDetailViewController.swift */,
 				4957DEE51FB7702C00BEDDE7 /* ClassCell.swift */,
 				4957DEE61FB7702C00BEDDE7 /* ClassDetailViewController.swift */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494B274320143F7600A4B93C /* ClassInScheduleModel.swift in Sources */,
 				4957DF5F1FC06C8B00BEDDE7 /* ClassesCell.swift in Sources */,
 				4957DEF01FB7702C00BEDDE7 /* ClassModel.swift in Sources */,
 				493F256A1FDCDCEB005ED4DD /* SetScheduleViewController.swift in Sources */,

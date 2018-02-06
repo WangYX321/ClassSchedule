@@ -8,10 +8,14 @@
 
 import UIKit
 
-class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SelectedClassToScheduleDelegate {
 
     @IBOutlet weak var collectionView: UICollectionView!
     var weeks = [String]()
+    var selectedRow : Int?
+//    var dataDic = [Int:ClassModel]()
+    var dataDic = [Int:ClassInScheduleModel]()
+    let tableColumn = UserDefaults.standard.integer(forKey: "TableColumn")
     
     var column = 0
     var row = 0
@@ -46,6 +50,10 @@ class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UIC
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        self.dataDic = CDOption.fetchClassesInSchedule()
+        self.collectionView.reloadData()
+        print(self.dataDic)
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -64,14 +72,24 @@ class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UIC
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ClassCellId", for: indexPath) as? ClassCell
         if indexPath.section == 0 {
             cell?.nameLabel.text = weeks[indexPath.row]
-            
+            cell?.backgroundColor = UIColor.white
             return cell!
         } else {
             if indexPath.row % (column+1) == 0 {
                 cell?.nameLabel.text = "\(1 + indexPath.row/(column+1))"
+                cell?.backgroundColor = UIColor.white
             } else {
-//                cell?.nameLabel.text = classes[Int(arc4random_uniform(UInt32(classes.count-1)))]
-                cell?.nameLabel.text = ""
+//                let rowTemp = indexPath.row
+//                let columnTemp = indexPath.row
+                
+                if let classModel = self.dataDic[indexPath.row] {
+                    cell?.nameLabel.text = classModel.subject
+                    cell?.backgroundColor = ColorSelector.getColorFromTag(tag: Int(classModel.bgColor))
+                } else {
+                    cell?.nameLabel.text = ""
+                    cell?.backgroundColor = UIColor.white
+                }
+                
             }
             
             return cell!
@@ -80,6 +98,41 @@ class SetScheduleViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: self.view.bounds.size.width/CGFloat(column + 1), height: 40)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 0 {
+            return false
+        } else {
+            return indexPath.row % (column+1) == 0 ? false : true
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.selectedRow = indexPath.row
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "selectClassSegue" {
+            let vc = segue.destination as? EditDetailViewController
+            vc?.delegate = self
+        }
+    }
+    
+    func selectedClassToSchedule(classModel: ClassModel) {
+        print(classModel.name)
+        var oldModel = self.dataDic[self.selectedRow!]
+        if oldModel == nil {
+            oldModel = ClassInScheduleModel()
+        }
+        oldModel?.subject = classModel.name
+        oldModel?.bgColor = Int32(classModel.bgColor)
+        oldModel?.column = Int32(self.selectedRow!%tableColumn)
+        oldModel?.row = Int32(self.selectedRow!/tableColumn)
+        
+        self.dataDic[self.selectedRow!] = oldModel
+        self.collectionView.reloadData()
+        CDOption.insertClassesInSchedule(model: oldModel!)
     }
 
     override func didReceiveMemoryWarning() {
