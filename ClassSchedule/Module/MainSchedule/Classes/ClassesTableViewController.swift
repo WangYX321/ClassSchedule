@@ -66,8 +66,32 @@ class ClassesTableViewController: UITableViewController {
         return .delete
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        self.selectedClassModel = self.dataArray[indexPath.row]
+        return indexPath
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editClassSegue" {
+            let vc = segue.destination as? AddClassViewController
+            vc?.classModel = self.selectedClassModel
+            vc?.title = "Edit Class"
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let finish = UITableViewRowAction(style: .normal, title: "完成") { (action, index) in
+            AlertView.showAlert(message: "完成", inView: self)
+        }
+        finish.backgroundColor = UIColor.orange
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "删除") { (action, index) in
             let alert = UIAlertController(title: "确定要删除么?", message: "", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
             let confirm = UIAlertAction(title: "删除", style: .destructive, handler: { (action) in
@@ -83,19 +107,8 @@ class ClassesTableViewController: UITableViewController {
             alert.addAction(confirm)
             self.present(alert, animated: true, completion: nil)
         }
-    }
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        self.selectedClassModel = self.dataArray[indexPath.row]
-        return indexPath
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "editClassSegue" {
-            let vc = segue.destination as? AddClassViewController
-            vc?.classModel = self.selectedClassModel
-            vc?.title = "Edit Class"
-        }
+        
+        return [finish, delete]
     }
 
     /*
